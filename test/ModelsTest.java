@@ -28,7 +28,7 @@ public class ModelsTest {
     @Test
     public void deveAssistirEpisodio() {
         assertThat(temporada.getStatus()).isEqualTo(0);
-        episodio.setAsssitido(true);
+        episodio.setAssistido(true);
         assertThat(episodio.estaAssistido()).isEqualTo(true);
         assertThat(temporada.getStatus()).isEqualTo(1);;
     }
@@ -36,8 +36,8 @@ public class ModelsTest {
     @Test
     public void deveAssistirTemporataCompleta(){
         assertThat(temporada.getStatus()).isEqualTo(0);
-        episodio.setAsssitido(true);
-        episodio1.setAsssitido(true);
+        episodio.setAssistido(true);
+        episodio1.setAssistido(true);
         assertThat(episodio.estaAssistido()).isEqualTo(true);
         assertThat(temporada.getStatus()).isEqualTo(2);
     }

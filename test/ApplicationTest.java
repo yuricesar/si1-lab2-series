@@ -25,7 +25,7 @@ public class ApplicationTest extends AbstractTest{
 
     @Test
     public void deveIniciarComSeries() {
-        List<Serie> series = dao.findAllByClassName(Serie.class.getNome());
+        List<Serie> series = dao.findAllByClassName(Serie.class.getName());
         assertThat(series.size()).isNotEqualTo(0);
     }
 
@@ -54,12 +54,12 @@ public class ApplicationTest extends AbstractTest{
         dao.persist(serie);
 
         Episodio episodio1 = dao.findByEntityId(Episodio.class, episodio.getId());
-        assertThat(episodio1.isWatched()).isEqualTo(false);
-        episodio1.setAsssistido(true);
+        assertThat(episodio1.estaAssistido()).isEqualTo(false);
+        episodio1.setAssistido(true);
         dao.merge(episodio1);
 
         episodio1 = dao.findByEntityId(Episodio.class, episodio.getId());
-        assertThat(episodio1.isWatched()).isEqualTo(true);
+        assertThat(episodio1.estaAssistido()).isEqualTo(true);
     }
 
     @Test
@@ -75,7 +75,7 @@ public class ApplicationTest extends AbstractTest{
 
         Episodio episodio1 = dao.findByEntityId(Episodio.class, episodio.getId());
         assertThat(episodio1.getTemporada().getStatus()).isEqualTo(0);
-        episodio1.setAsssistido(true);
+        episodio1.setAssistido(true);
         dao.merge(episodio1);
 
         episodio1 = dao.findByEntityId(Episodio.class, episodio.getId());
@@ -93,7 +93,7 @@ public class ApplicationTest extends AbstractTest{
 
         Episodio episodio1 = dao.findByEntityId(Episodio.class, episodio.getId());
         assertThat(episodio1.getTemporada().getStatus()).isEqualTo(0);
-        episodio1.setAsssistido(true);
+        episodio1.setAssistido(true);
         dao.merge(episodio1);
 
         episodio1 = dao.findByEntityId(Episodio.class, episodio.getId());
